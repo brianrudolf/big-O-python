@@ -26,4 +26,4 @@ _Contents:_
 The program will accept either an individual function to assess or a collection of functions as organized in `funcs/`
 
 ## Example Output
-![alt text](images/count.png)
+![Time complexity of str.count()](images/count.png)

@@ -9,8 +9,17 @@ import funcs
 from graph import background
 
 
-def main(func_name, func_call):
-    """Setup the chart, run the analysis on the Python function, and plot the results"""
+def main(args, func_name, func_call):
+    """Setup the chart, run the analysis on the Python function, and plot the results
+
+    Args:
+        func_name (string): name of function to assess
+        func_call (method): method of function to assess
+
+    Returns:
+        Plots results on screen
+    """
+
     samples = np.logspace(1, 2, num=100)
 
     big_O = [
@@ -30,7 +39,8 @@ def main(func_name, func_call):
 
     plt.savefig(f"images/{func_name}.png")
 
-    plt.show()
+    if args.show:
+        plt.show()
 
 
 if __name__ == "__main__":
@@ -47,18 +57,23 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description="A Python time complexity journey.")
     parser.add_argument(
-        "FUT",
+        "func_test",
         metavar="func",
         type=str,
-        help="Name of Python function to analyze",
+        help="Name of Python function or module to assess",
+    )
+    parser.add_argument(
+        "--show",
+        help="Show the plots after assessing each function",
+        action="store_true",
     )
 
     args = parser.parse_args()
 
-    FUT = getattr(funcs, args.FUT)
+    func_test = getattr(funcs, args.func_test)
 
-    if inspect.ismodule(FUT):
+    if inspect.ismodule(func_test):
         for func_name, func_call in inspect.getmembers(funcs, inspect.isfunction):
-            main(func_name, func_call)
+            main(args, func_name, func_call)
     else:
-        main(args.FUT, FUT)
+        main(args, args.func_test, func_test)
