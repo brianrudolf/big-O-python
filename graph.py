@@ -43,8 +43,15 @@ if __name__ == "__main__":
     y = 10
 
     fig, ax = background(x, y)
+
     fig.canvas.set_window_title("Big O Python")
     fig.suptitle("Background demo", fontsize=16)
+
+    ax.legend()
+
     plt.ylim(0, y)
     plt.xlim(1, x)
+
+    plt.savefig("images/background.png")
+
     plt.show()
