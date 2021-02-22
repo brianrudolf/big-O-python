@@ -8,9 +8,13 @@ This project assesses the time complexity of various built in Python functions. 
 _Contents:_
 **[Installation](#installation)** |
 **[Use](#use)** |
-**[Example Output](#example)** |
+**[Example Output](#example-output)** |
 
 ---
+
+[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
 ## Installation
